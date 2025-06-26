@@ -7,12 +7,11 @@ echo "
 ========================================
 "
 
-# Create base directories
+# Create base directories (excluding /workspace/ComfyUI)
 echo "
 ----------------------------------------
 📁 Creating base directories...
 ----------------------------------------"
-mkdir -p /workspace/ComfyUI
 mkdir -p /workspace/miniconda3
 mkdir -p /workspace/ComfyUI/models/checkpoints
 mkdir -p /workspace/ComfyUI/models/loras
@@ -39,7 +38,7 @@ echo "
 ----------------------------------------"
 eval "$(/workspace/miniconda3/bin/conda shell.bash hook)"
 
-# Clone ComfyUI repos
+# Clone ComfyUI repos (clone only if not cloned yet)
 echo "
 ----------------------------------------
 📥 Cloning ComfyUI and custom nodes repos...
@@ -145,6 +144,3 @@ conda activate comfyui
 python3 main.py --listen 0.0.0.0 --port 8188
 ----------------------------------------
 "
-
-
-
