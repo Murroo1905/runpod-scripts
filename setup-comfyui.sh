@@ -38,28 +38,22 @@ echo "
 ----------------------------------------"
 eval "$(/workspace/miniconda3/bin/conda shell.bash hook)"
 
-# Clone ComfyUI repos (clone only if not cloned yet)
+# Remove /workspace/ComfyUI if it exists and is non-empty (force clean clone)
+if [ -d "/workspace/ComfyUI" ] && [ "$(ls -A /workspace/ComfyUI)" ]; then
+    echo "Removing existing /workspace/ComfyUI directory to ensure clean clone..."
+    rm -rf /workspace/ComfyUI
+fi
+
+# Clone ComfyUI repos
 echo "
 ----------------------------------------
 📥 Cloning ComfyUI and custom nodes repos...
 ----------------------------------------"
-if [ ! -d "/workspace/ComfyUI/.git" ]; then
-    git clone https://github.com/comfyanonymous/ComfyUI.git /workspace/ComfyUI
-else
-    echo "ComfyUI already cloned, skipping..."
-fi
+git clone https://github.com/comfyanonymous/ComfyUI.git /workspace/ComfyUI
 
-if [ ! -d "/workspace/ComfyUI/custom_nodes/ComfyUI-Manager/.git" ]; then
-    git clone https://github.com/ltdrdata/ComfyUI-Manager.git /workspace/ComfyUI/custom_nodes/ComfyUI-Manager
-else
-    echo "ComfyUI-Manager already cloned, skipping..."
-fi
+git clone https://github.com/ltdrdata/ComfyUI-Manager.git /workspace/ComfyUI/custom_nodes/ComfyUI-Manager
 
-if [ ! -d "/workspace/ComfyUI/custom_nodes/ComfyUI_RyanOnTheInside/.git" ]; then
-    git clone https://github.com/ryanontheinside/ComfyUI_RyanOnTheInside.git /workspace/ComfyUI/custom_nodes/ComfyUI_RyanOnTheInside
-else
-    echo "RyanOnTheInside nodes already cloned, skipping..."
-fi
+git clone https://github.com/ryanontheinside/ComfyUI_RyanOnTheInside.git /workspace/ComfyUI/custom_nodes/ComfyUI_RyanOnTheInside
 
 # Create conda environment if missing
 echo "
