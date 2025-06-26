@@ -140,7 +140,7 @@ echo "
 LORA_DIR="/workspace/ComfyUI/models/loras"
 mkdir -p "$LORA_DIR"
 cd "$LORA_DIR"
-wget -N https://huggingface.co/Muro1905/comfyui-models/resolve/main/pony%20breasts%20horny%20areolas%20(horny%20areolas)%20own%200999.safetensors
+wget -N "https://huggingface.co/Muro1905/comfyui-models/resolve/main/pony%20breasts%20horny%20areolas%20(horny%20areolas)%20own%200999.safetensors"
 wget -N https://huggingface.co/Muro1905/comfyui-models/resolve/main/Perfect_Booty_XL_V1.safetensors
 wget -N https://huggingface.co/Muro1905/comfyui-models/resolve/main/Dramatic%20Lighting%20Slider.safetensors
 wget -N https://huggingface.co/Muro1905/comfyui-models/resolve/main/Breast%20Size%20Slider.safetensors
